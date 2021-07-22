@@ -1,11 +1,11 @@
-// import { Action } from '@ngrx/store';
 import * as SearchUserActions from './search-user.action';
 
 const initialState = {
   userDetail: {
     firstName: 'Sajjad',
     lastName: 'Akram',
-    email: 'sajjadakram6@gmail.com'
+    email: 'sajjadakram6@gmail.com',
+    age: 25
   }
 };
 

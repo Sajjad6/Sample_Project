@@ -20,27 +20,13 @@ export class UsersListComponent implements OnInit {
       checkboxSelection: true,
     },
     { headerName: 'First Name', field: 'firstName', sortable: true, filter: true },
-    { headerName: 'Last Name', field: 'lastName' },
-    { headerName: 'Email', field: 'email' },
-    { headerName: 'Action',
-      cellRenderer: '<button>',
-      cellRendererParams: {
-        onClick:
-        this.onDeleteClick.bind(this),
-        label: 'Delete'
-      },
-    }
-    // { headerName: 'Action', field: 'action' }
+    { headerName: 'Last Name', field: 'lastName', sortable: true, filter: true},
+    { headerName: 'Age', field: 'age', sortable: true, filter: true},
+    { headerName: 'Email', field: 'email', sortable: true, filter: true },
   ];
 
-  // rowData = [
-  //   { fname: 'A', lname: 'B', email: 'abc', action: 'Delete' },
-  //   { fname: 'C', lname: 'D', email: 'def', action: 'Delete' },
-  //   { fname: 'E', lname: 'F', email: 'ghi', action: 'Delete' }
-  // ]
   rowData;
   userInput: any;
-  filteredMockData = mockData;
   rowSelection: any;
   defaultColDef: any;
   paginationPageSize: any;
@@ -54,25 +40,11 @@ export class UsersListComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.store.
     this.store.select('searchUser').subscribe(response => {
       this.userInput = response;
-      console.log('In UsersCOmp:', this.userInput);
     });
-    // if (this.userInput.userDetail.firstName) {
-    //   this.filteredMockData = this.filteredMockData.filter(fil => fil.firstName.includes(this.userInput.userDetail.firstName));
-    // }
-    // if (this.userInput.userDetail.lastName) {
-    //   this.filteredMockData = this.filteredMockData.filter(fil => fil.lastName.includes(this.userInput.userDetail.lastName));
-    // }
-    // if (this.userInput.userDetail.email) {
-    //   this.filteredMockData = this.filteredMockData.filter(fil => fil.email.includes(this.userInput.userDetail.email));
-    // }
-    this.rowData = this.filteredMockData;
-  }
-
-  onDeleteClick(params) {
-    console.log('Delete Clicked');
+    mockData.unshift(this.userInput.userDetail);
+    this.rowData = mockData
   }
 
 }
