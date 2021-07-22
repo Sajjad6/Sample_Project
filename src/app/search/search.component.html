@@ -1,20 +1,20 @@
 <div class="example-form">
   <div>Add User Details Form</div>
   <mat-form-field class="example-full-width">
-    <mat-label>First Name</mat-label>
+    <mat-label>First Name *</mat-label>
     <input matInput placeholder="first name" [(ngModel)]="firstName">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <mat-label>Last Name</mat-label>
+    <mat-label>Last Name *</mat-label>
     <input matInput placeholder="last name" [(ngModel)]="lastName">
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <mat-label>Age</mat-label>
+    <mat-label>Age *</mat-label>
     <input matInput placeholder="age" [(ngModel)]="age">
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
+    <mat-label>Email *</mat-label>
     <input matInput placeholder="email" [(ngModel)]="email">
   </mat-form-field>
     <input type="button" class="button-wrapper" value="Add User" [disabled]="buttonDisable()" (click)="onSearchClicked()">
